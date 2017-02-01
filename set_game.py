@@ -1,3 +1,6 @@
+"""For the game set, finds the number of possible sets. 
+Tries every possible combination of cards. 
+"""
 import pandas as pd
 
 def load_deck():
