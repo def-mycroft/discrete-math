@@ -1,2 +1,2 @@
 
-Misc scripts for MATH-999 combinatorics course. 
+Some scripts and functions for a discrete math course. 
