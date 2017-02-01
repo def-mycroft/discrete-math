@@ -1,7 +1,9 @@
 """For the game set, finds the number of possible sets. 
 
 Tries every possible combination of cards and counts up the
-number of sets.
+number of sets. 
+
+The attributes of each card are represented by the numbers 1-4.
 
 """
 import pandas as pd
