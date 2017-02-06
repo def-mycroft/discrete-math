@@ -1,7 +1,13 @@
 """For the game set, finds the number of possible sets. 
-Tries every possible combination of cards. 
+
+Tries every possible combination of cards and counts up the
+number of sets. 
+
+The attributes of each card are represented by the numbers 1-4.
+
 """
 import pandas as pd
+
 
 def load_deck():
     """Loads the deck from csv"""
@@ -22,16 +28,17 @@ def check_different(attributes):
     s = set()
 
     for x in attributes:
-        if x in s: return False
+        if x in s:
+            return False
         s.add(x)
 
     return True
 
 
 def check_for_set(color, shade, shape, quantity):
-    """Checks for sets""" 
+    """Checks for sets"""
     is_set = False
-    
+
     color_is_set = check_same(color) or check_different(color)
     shade_is_set = check_same(shade) or check_different(shade)
     shape_is_set = check_same(shape) or check_different(shape)
@@ -44,7 +51,7 @@ def check_for_set(color, shade, shape, quantity):
 
 
 def find_sets(verbose=False):
-
+    """Goes through every possible 3-card combination and checks for set"""
     count = 0
     deck = load_deck()
 
@@ -68,40 +75,35 @@ def find_sets(verbose=False):
                             first_card[0],
                             second_card[0],
                             third_card[0]
-                            ])
+                        ])
 
                         shade = list([
                             first_card[1],
                             second_card[1],
                             third_card[1]
-                            ])
+                        ])
 
                         shape = list([
                             first_card[2],
                             second_card[2],
                             third_card[2]
-                            ])
+                        ])
 
                         quantity = list([
                             first_card[3],
                             second_card[3],
                             third_card[3]
-                            ])
+                        ])
 
                         if check_for_set(color, shade, shape, quantity):
                             count += 1
 
                             if verbose:
-                                print('#'*80)
+                                print('#' * 80)
                                 print(count)
                                 print(first_card)
                                 print(second_card)
                                 print(third_card)
-                                print('#'*80)
+                                print('#' * 80)
 
     return count
-
-
-
-
-
