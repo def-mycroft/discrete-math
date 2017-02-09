@@ -14,9 +14,13 @@ def list_combinations(n, r, multiset=False):
         return set(list(itertools.combinations(n,r)))
 
 
-def list_permutations(n,r):
+def list_permutations(n,r, multiset=False):
     """Returns a list of all possibl r-perm of a n-sized list"""
-    return list(itertools.permutations(n,r))
+    if not multiset:
+        return list(itertools.permutations(n,r))
+
+    elif multiset:
+        return set(list(itertools.permutations(n,r)))
 
 
 def r_permutations(n, r):

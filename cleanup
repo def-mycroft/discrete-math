@@ -1,0 +1,5 @@
+
+rm *~
+rm -r __pycache__
+rm .*~
+echo "junk files removed"
